@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Spectre.css - Comparativa</title>
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+  <style>.logo{font-weight:600;color:#2b8cc4} .card-image img{max-width:100%;height:auto;display:block;object-fit:cover;max-height:220px}</style>
+</head>
+<body class="container grid-lg">
+  <header class="columns">
+    <div class="column col-6">
+      <span class="logo">Logo</span>
+    </div>
+    <div class="column col-6 text-right">
+      <a href="#" class="btn btn-link">Inicio</a>
+      <a href="#" class="btn btn-link">Productos</a>
+    </div>
+  </header>
+
+  <div class="columns">
+    <div class="column col-4">
+      <div class="card">
+        <div class="card-image">
+          <img src="logoramdom.jpg" alt="Producto">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Producto Spectre</div>
+        </div>
+        <div class="card-body">
+          <p>Descripción corta del producto para la comparativa visual entre frameworks.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary">Comprar</button>
+        </div>
+      </div>
+    </div>
+    <div class="column col-8">
+      <h4>Demostración Spectre.css</h4>
+      <p>Spectre es un framework minimal y ligero con estilos claros y modernos por defecto.</p>
+
+      <form onsubmit="event.preventDefault(); alert('Enviado (simulado)')">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input class="form-input" type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="tu@ejemplo.com">
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>

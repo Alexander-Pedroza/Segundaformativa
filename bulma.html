@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bulma - Comparativa</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <strong class="has-text-primary">Logo</strong>
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">Inicio</a>
+        <a class="navbar-item">Productos</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="logoramdom.jpg" alt="Producto">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-5">Producto Bulma</p>
+              <p class="content">Descripción corta del producto para la comparativa visual entre frameworks.</p>
+              <a class="button is-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h3 class="title is-4">Demostración Bulma</h3>
+          <p class="subtitle">Bulma usa clases semánticas como columns, column y card para componer layouts.</p>
+
+          <form onsubmit="event.preventDefault(); alert('Enviado (simulado)')">
+            <div class="field">
+              <label class="label">Nombre</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Tu nombre">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" type="email" placeholder="tu@ejemplo.com">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-primary">Enviar</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

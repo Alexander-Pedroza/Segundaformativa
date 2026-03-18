@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chakra UI (UMD) - Comparativa</title>
+  <!-- React + ReactDOM UMD -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Emotion (peer dep) -->
+  <script crossorigin src="https://unpkg.com/@emotion/react@11.11.0/dist/emotion-react.umd.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@emotion/styled@11.11.0/dist/emotion-styled.umd.min.js"></script>
+  <!-- Chakra UMD -->
+  <script crossorigin src="https://unpkg.com/@chakra-ui/react@2.7.3/dist/chakra-ui-react.umd.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    (function(){
+      const e = React.createElement;
+
+      function renderApp(rootEl, AppComp){
+        try{
+          if(ReactDOM && typeof ReactDOM.createRoot === 'function'){
+            ReactDOM.createRoot(rootEl).render(e(AppComp));
+            return;
+          }
+        }catch(err){/* ignore */}
+        if(ReactDOM && typeof ReactDOM.render === 'function'){
+          ReactDOM.render(e(AppComp), rootEl);
+          return;
+        }
+        rootEl.innerHTML = '<pre style="color:red">ReactDOM no está disponible en este entorno</pre>';
+      }
+
+      // Detect Chakra UMD global under several possible names
+      const ChakraLib = window['chakra-ui-react'] || window.ChakraUIReact || window.Chakra || window.ChakraUI || window['Chakra'];
+
+      if(ChakraLib && ChakraLib.ChakraProvider){
+        const { ChakraProvider, Box, Flex, Button, Image, Heading, Text, Input, Stack } = ChakraLib;
+
+        function App(){
+          return e(ChakraProvider, null,
+            e(Box, {maxW: '960px', mx: 'auto', p:4},
+              e(Flex, {as:'header', align:'center', justify:'space-between', mb:4},
+                e(Heading, {size:'md', color:'teal.500'}, 'Logo'),
+                e(Flex, {gap:4}, e('a',{href:'#'}, 'Inicio'), e('a',{href:'#'}, 'Productos'))
+              ),
+              e(Flex, {direction:{base:'column', md:'row'}, gap:6},
+                e(Box, {flex:'1', borderWidth:'1px', borderRadius:'lg', overflow:'hidden', p:4},
+                  e(Image, {src:'logoramdom.jpg', alt:'Producto', borderRadius:'md'}),
+                  e(Heading, {size:'md', mt:3}, 'Producto Chakra'),
+                  e(Text, {mt:2, color:'gray.600'}, 'Descripción corta del producto para la comparativa visual entre frameworks.'),
+                  e(Button, {mt:3, colorScheme:'teal'}, 'Comprar')
+                ),
+                e(Box, {flex:'1', p:4, borderWidth:'1px', borderRadius:'lg'},
+                  e(Heading, {size:'md'}, 'Formulario de Contacto'),
+                  e(Stack, {spacing:3, mt:3},
+                    e(Box, null, e(Text, null, 'Nombre'), e(Input, {placeholder:'Tu nombre'})),
+                    e(Box, null, e(Text, null, 'Email'), e(Input, {type:'email', placeholder:'tu@ejemplo.com'})),
+                    e(Button, {colorScheme:'teal', onClick:()=>alert('Enviado (simulado)')}, 'Enviar')
+                  )
+                )
+              )
+            )
+          );
+        }
+
+        renderApp(document.getElementById('root'), App);
+      } else {
+        console.warn('Chakra UMD no está disponible. Se renderizará una versión de respaldo.');
+
+        function FallbackApp(){
+          return e('div', {style:{maxWidth:'960px',margin:'20px auto',fontFamily:'system-ui, Arial, sans-serif'}},
+            e('header', {style:{display:'flex',justifyContent:'space-between',alignItems:'center'}},
+              e('h2', {style:{color:'#319795',margin:0}}, 'Logo'),
+              e('nav', null, e('a',{href:'#', style:{marginRight:12}}, 'Inicio'), e('a',{href:'#'} , 'Productos'))
+            ),
+            e('main', {style:{display:'flex',flexDirection: (window.innerWidth<640)?'column':'row',gap:24,marginTop:16}},
+              e('section',{style:{flex:1,border:'1px solid #e2e8f0',padding:16,borderRadius:8}},
+                e('img',{src:'logoramdom.jpg', alt:'Producto', style:{width:'100%',height:'auto',borderRadius:6}}),
+                e('h3', null, 'Producto Chakra (fallback)'),
+                e('p', null, 'Descripción corta del producto para la comparativa visual entre frameworks.'),
+                e('button',{style:{background:'#319795',color:'#fff',border:'none',padding:'8px 12px',borderRadius:6,marginTop:8}}, 'Comprar')
+              ),
+              e('aside',{style:{flex:1,border:'1px solid #e2e8f0',padding:16,borderRadius:8}},
+                e('h3', null, 'Formulario de Contacto'),
+                e('div', null,
+                  e('label', null, 'Nombre'),
+                  e('input', {type:'text', placeholder:'Tu nombre', style:{width:'100%',padding:8,marginTop:4,marginBottom:8}})
+                ),
+                e('div', null,
+                  e('label', null, 'Email'),
+                  e('input', {type:'email', placeholder:'tu@ejemplo.com', style:{width:'100%',padding:8,marginTop:4,marginBottom:8}})
+                ),
+                e('button',{onClick:()=>alert('Enviado (simulado)'), style:{background:'#319795',color:'#fff',border:'none',padding:'8px 12px',borderRadius:6}}, 'Enviar')
+              )
+            )
+          );
+        }
+
+        renderApp(document.getElementById('root'), FallbackApp);
+      }
+    })();
+  </script>
+</body>
+</html>

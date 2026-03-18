@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Skeleton - Comparativa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <style>header{padding:20px 0} .logo{font-weight:bold;color:#2b8cc4}</style>
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <div class="six columns">
+        <div class="logo">Logo</div>
+      </div>
+      <nav class="six columns" style="text-align:right">
+        <a href="#">Inicio</a> &nbsp; <a href="#">Productos</a>
+      </nav>
+    </header>
+
+    <div class="row">
+      <div class="four columns">
+        <div class="card">
+          <img src="logoramdom.jpg" alt="Producto" style="width:100%">
+          <h5>Producto Skeleton</h5>
+          <p>Descripción corta del producto para la comparativa visual entre frameworks.</p>
+          <button class="button-primary">Comprar</button>
+        </div>
+      </div>
+      <div class="eight columns">
+        <h4>Demostración Skeleton</h4>
+        <p>Skeleton usa un sistema de 12 columnas: container, row y columns.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Enviado (simulado)')">
+          <div class="row">
+            <div class="six columns">
+              <label>Nombre</label>
+              <input class="u-full-width" type="text" placeholder="Tu nombre">
+            </div>
+            <div class="six columns">
+              <label>Email</label>
+              <input class="u-full-width" type="email" placeholder="tu@ejemplo.com">
+            </div>
+          </div>
+          <input class="button-primary" type="submit" value="Enviar">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

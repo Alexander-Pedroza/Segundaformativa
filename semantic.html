@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Semantic UI - Comparativa</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+<body>
+  <div class="ui menu">
+    <div class="header item">Logo</div>
+    <a class="item">Inicio</a>
+    <a class="item">Productos</a>
+  </div>
+
+  <div class="ui stackable grid container" style="margin-top:20px">
+    <div class="four wide column">
+      <div class="ui card">
+        <div class="image">
+          <img src="logoramdom.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Producto Semantic</a>
+          <div class="description">Descripción corta del producto para la comparativa visual entre frameworks.</div>
+        </div>
+        <div class="extra content">
+          <button class="ui primary button">Comprar</button>
+        </div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+      <h3 class="ui header">Demostración Semantic UI</h3>
+      <p>Semantic UI ofrece componentes con JavaScript para interacciones (requerido para algunos efectos).</p>
+
+      <form class="ui form" onsubmit="event.preventDefault(); $('.ui.basic.modal').modal('show');">
+        <div class="two fields">
+          <div class="field">
+            <label>Nombre</label>
+            <input type="text" name="name" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="tu@ejemplo.com">
+          </div>
+        </div>
+        <button class="ui primary button" type="submit">Enviar</button>
+      </form>
+
+      <div class="ui basic modal">
+        <div class="ui icon header">
+          <i class="check icon"></i>
+          Enviado (simulado)
+        </div>
+        <div class="content">
+          <p>Formulario enviado (simulación).</p>
+        </div>
+        <div class="actions">
+          <div class="ui ok inverted button">OK</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>
+</html>
